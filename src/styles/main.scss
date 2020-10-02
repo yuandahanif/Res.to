@@ -1,14 +1,89 @@
-@import 'reset';
-@import 'variables';
-@import 'media';
+@import "reset";
+@import "variables";
+@import "media";
 
-@import '../public/fonts/stylesheet.css';
+@import "../public/fonts/stylesheet.css";
+
+// Setting up
+:root {
+	font-size: 16px;
+}
 
 body {
-    font-family: 'Open Sans';
-    background-color: red;
+	font-family: "Open Sans";
+	// background-color: red;
 }
 
 img {
-    display: block;
+	display: block;
+}
+
+// 🔥 Nav
+header {
+	position: relative;
+	background-color: white;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 1em 1em;
+	display: flex;
+	justify-content: space-between;
+	z-index: 1000;
+
+	@include media(">mobile") {
+		.hamburger-menu {
+			display: none;
+		}
+	}
+
+	nav.drawer {
+		position: fixed;
+		top: 0%;
+		right: 0%;
+		width: 70%;
+		height: 100%;
+		transform: translate(100%, 0%);
+		z-index: 999;
+		background-color: white;
+		transition: transform 0.6s ease-in-out;
+		// visibility: hidden;
+        padding-top: 2em;
+        
+        
+		ul li a {
+            display: inline-block;
+			box-sizing: border-box;
+			width: 100%;
+			min-height: 44px;
+			padding: 1em;
+			text-decoration: none;
+			color: $black;
+			text-align: center;
+			font-weight: $light-bold;
+		}
+        
+		&.open {
+            transform: unset;
+		}
+        
+		@include media(">mobile") {
+            position: relative;
+			background-color: aqua;
+			top: unset;
+			right: unset;
+			width: auto;
+			height: auto;
+			transform: unset;
+            padding-top: 0;
+            
+            ul {
+				display: flex;
+			}
+		}
+	}
+}
+
+// 🔥 Main
+main {
+	box-sizing: border-box;
+    // padding-top: em;
 }
