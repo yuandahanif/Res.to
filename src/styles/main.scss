@@ -1,0 +1,14 @@
+@import 'reset';
+@import 'variables';
+@import 'media';
+
+@import '../public/fonts/stylesheet.css';
+
+body {
+    font-family: 'Open Sans';
+    background-color: red;
+}
+
+img {
+    display: block;
+}
