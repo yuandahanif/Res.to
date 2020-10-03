@@ -38,6 +38,21 @@ header {
 		}
 	}
 
+	.logo {
+		height: 1.5em;
+		img {
+			height: 100%;
+		}
+	}
+
+	.hamburger-button {
+		background-color: transparent;
+		outline: none;
+		border: none;
+		color: $black;
+		font-size: 1.2em;
+	}
+
 	nav.drawer {
 		position: fixed;
 		top: 0%;

@@ -17,7 +17,7 @@ const nav = (): void => {
 	});
 
 	outsideDrawer?.addEventListener("click", (e) => {
-		e.preventDefault();
+		// e.preventDefault();
 		e.stopPropagation();
 		drawer?.classList.remove("open");
 	});
