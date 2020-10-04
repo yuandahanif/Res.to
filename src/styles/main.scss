@@ -22,6 +22,34 @@ img {
 	display: block;
 }
 
+// 🖼 template
+.card-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	justify-items: center;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+
+	.card-item {
+		background-color: white;
+		box-sizing: border-box;
+		padding: 2em;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+}
+
+.section-label {
+	padding: 0 1em;
+	font-size: 1.8em;
+	font-weight: 700;
+	text-align: center;
+	color: $black;
+}
+
 // 🔥 Nav
 header {
 	position: relative;
@@ -29,6 +57,7 @@ header {
 	width: 100%;
 	padding: 1em 1em;
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
 	z-index: 1000;
 
@@ -138,5 +167,47 @@ main {
 			text-decoration: none;
 			font-size: 1em;
 		}
+	}
+
+	.kelebihan-section {
+		padding: 2em 0;
+
+		// .kelebihan__label {
+		// }
+
+		.card-container {
+			flex-direction: column;
+
+			.card-item {
+				.image-container {
+					height: 7em;
+					text-align: center;
+					margin-bottom: 1em;
+
+					img {
+						height: 100%;
+						object-position: center;
+					}
+				}
+
+				h3 {
+					font-size: 1.5em;
+					font-weight: 700;
+					color: $black;
+					margin-bottom: 0.7em;
+				}
+				p {
+					line-height: 1.2;
+					font-size: 1em;
+				}
+			}
+		}
+	}
+
+	.restourants-section {
+		// .restourants__label {
+		// }
+
+
 	}
 }
