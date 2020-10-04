@@ -16,6 +16,13 @@
 body {
 	font-family: "Open Sans";
 	// background-color: red;
+	max-width: 1440px;
+	background-color: white;
+
+	@include media(">desktop") {
+		margin: auto;
+		box-shadow: 0.2em 0.2em 1em rgba(0, 0, 0, 0.25);
+	}
 }
 
 img {
@@ -62,15 +69,20 @@ header {
 	z-index: 1000;
 
 	@include media(">mobile") {
-		.hamburger-menu {
-			display: none;
-		}
+		padding: 1em 2em;
+	}
+	@include media(">900px") {
+		padding: 1em 4em;
 	}
 
 	.logo {
 		height: 1.5em;
 		img {
 			height: 100%;
+		}
+
+		@include media(">615px") {
+			height: 2em;
 		}
 	}
 
@@ -80,6 +92,10 @@ header {
 		border: none;
 		color: $black;
 		font-size: 1.2em;
+
+		@include media(">mobile") {
+			display: none;
+		}
 	}
 
 	nav.drawer {
@@ -98,10 +114,9 @@ header {
 
 		ul li a {
 			display: inline-block;
-
 			width: 100%;
 			min-height: 44px;
-			padding: 1em;
+			padding: 1em 0 1em 1em;
 			text-decoration: none;
 			color: $black;
 			text-align: center;
@@ -113,8 +128,9 @@ header {
 		}
 
 		@include media(">mobile") {
-			position: relative;
-			background-color: aqua;
+			position: static;
+			// background-color: aqua;
+			box-shadow: none;
 			top: unset;
 			right: unset;
 			width: auto;
@@ -142,6 +158,17 @@ main {
 		// filter: brightness(0.8);
 		text-align: center;
 
+		@include media('>700px') {
+			padding: 6em 2em;
+		}
+		@include media('>850px') {
+			padding: 10em 2em;
+		}
+		@include media('>1000px') {
+			padding: 10em 2em;
+			min-height: 70vh;
+		}
+
 		&__heading-title {
 			color: white;
 			font-size: 2em;
@@ -166,23 +193,48 @@ main {
 			cursor: pointer;
 			text-decoration: none;
 			font-size: 1em;
+			transition: .4s ease-in-out;
+
+			&:hover {
+				color: darken(white, 10%);
+				background-color: darken(lightseagreen, 10%);
+			}
 		}
 	}
 
 	.kelebihan-section {
 		padding: 2em 0;
 
+		@include media('>1000px') {
+			padding-top: 5em;
+		}
 		// .kelebihan__label {
 		// }
 
 		.card-container {
-			flex-direction: column;
+			grid-template-columns: repeat(auto-fit minmax(300px, 1fr));
+			column-count: 3;
+			max-width: 1190px;
+			margin: auto;
+
+			@include media(">600px", "<900px") {
+				grid-template-columns: 1fr;
+			}
 
 			.card-item {
+				@include media(">mobile", "<900px") {
+					padding: 2em 2em;
+					width: 70%;
+				}
+
 				.image-container {
 					height: 7em;
 					text-align: center;
 					margin-bottom: 1em;
+
+					@include media(">600px") {
+						height: 10em;
+					}
 
 					img {
 						height: 100%;
@@ -208,8 +260,18 @@ main {
 	.restourants-section {
 		padding: 2em 0;
 
-		.restourants__label {
+		@include media(">515px", "<600px") {
+			padding: 2em 4em;
 		}
+		@include media(">470px", "<=515px") {
+			padding: 2em 2em;
+		}
+		@include media(">mobile", "<=470px") {
+			padding: 2em 1em;
+		}
+
+		// .restourants__label {
+		// }
 
 		.restourant-list {
 			padding-top: 2em;
@@ -222,6 +284,11 @@ main {
 				box-shadow: 0.1em 0.1em 0.4em rgba(0, 0, 0, 0.25);
 				overflow: hidden;
 				text-align: left;
+				transition: box-shadow 0.4s ease-in-out;
+
+				&:hover {
+					box-shadow: 0.2em 0.2em 0.6em rgba(63, 26, 26, 0.35);
+				}
 
 				.image-container {
 					height: 10em;
@@ -309,8 +376,8 @@ main {
 							font-size: 1em;
 							cursor: pointer;
 							font-weight: 550;
-							transition: color .2s ease-in-out;
-							
+							transition: color 0.2s ease-in-out;
+
 							&:hover {
 								color: darken($black, 20%);
 							}
@@ -319,7 +386,7 @@ main {
 
 					.action__share {
 						button {
-							padding: 1em 2em;
+							padding: 1em 0;
 							min-height: 44px;
 							border-radius: 0.5em;
 						}
@@ -327,7 +394,7 @@ main {
 
 					.action__detail {
 						a {
-							padding: 1em 2em;
+							padding: 1em 0;
 							min-height: 44px;
 							border-radius: 0.5em;
 						}
@@ -346,6 +413,6 @@ footer {
 
 	span {
 		color: white;
-		font-size: .9em;
+		font-size: 0.9em;
 	}
 }
