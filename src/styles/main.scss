@@ -199,15 +199,153 @@ main {
 				p {
 					line-height: 1.2;
 					font-size: 1em;
+					color: $black;
 				}
 			}
 		}
 	}
 
 	.restourants-section {
-		// .restourants__label {
-		// }
+		padding: 2em 0;
 
+		.restourants__label {
+		}
 
+		.restourant-list {
+			padding-top: 2em;
+
+			.restourant {
+				background-color: white;
+				border-radius: 0.5em;
+				padding: 0;
+				margin: 1em 1em;
+				box-shadow: 0.1em 0.1em 0.4em rgba(0, 0, 0, 0.25);
+				overflow: hidden;
+				text-align: left;
+
+				.image-container {
+					height: 10em;
+					width: 100%;
+					overflow: hidden;
+
+					img {
+						object-fit: cover;
+						// height: 100%;
+						width: 100%;
+					}
+				}
+
+				.restourant-description {
+					padding: 1em 0;
+					margin: 0 1em;
+					border-bottom: 1px solid lightgray;
+
+					.restourant-name {
+						font-size: 1.5em;
+						font-weight: 570;
+						margin-bottom: 0.5em;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						display: -webkit-box;
+						max-height: 1.2em;
+						-webkit-line-clamp: 1; /* Write the number of 
+                              lines you want to be 
+                              displayed */
+						-webkit-box-orient: vertical;
+					}
+
+					.rating {
+						display: flex;
+						margin-bottom: 0.5em;
+						align-items: flex-end;
+
+						.stars {
+							color: $gold;
+							margin-right: 0.5em;
+						}
+						.rating-number {
+							color: $black;
+							font-size: 0.8em;
+							display: inline-block;
+							vertical-align: bottom;
+							line-height: 1;
+						}
+					}
+
+					.description {
+						color: $black;
+						font-size: 0.9em;
+						line-height: 1.2;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						display: -webkit-box;
+						max-height: 1.2em * 3;
+						-webkit-line-clamp: 3; /* Write the number of 
+                              lines you want to be 
+                              displayed */
+						-webkit-box-orient: vertical;
+					}
+				}
+
+				.action {
+					display: flex;
+					// background-color: red;
+					width: 100%;
+					justify-content: center;
+
+					div {
+						width: 50%;
+						text-align: center;
+						box-sizing: border-box;
+						padding: 0.5em 0;
+
+						button,
+						a {
+							color: lighten($black, 20%);
+							background-color: transparent;
+							border: none;
+							display: inline-block;
+							text-decoration: none;
+							font-size: 1em;
+							cursor: pointer;
+							font-weight: 550;
+							transition: color .2s ease-in-out;
+							
+							&:hover {
+								color: darken($black, 20%);
+							}
+						}
+					}
+
+					.action__share {
+						button {
+							padding: 1em 2em;
+							min-height: 44px;
+							border-radius: 0.5em;
+						}
+					}
+
+					.action__detail {
+						a {
+							padding: 1em 2em;
+							min-height: 44px;
+							border-radius: 0.5em;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+footer {
+	background-color: #213e3b;
+	padding: 2em 0;
+	display: flex;
+	justify-content: center;
+
+	span {
+		color: white;
+		font-size: .9em;
 	}
 }
