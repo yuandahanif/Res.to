@@ -13,6 +13,10 @@
 	box-sizing: border-box;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	font-family: "Open Sans";
 	// background-color: red;
@@ -55,6 +59,22 @@ img {
 	font-weight: 700;
 	text-align: center;
 	color: $black;
+}
+
+// 🔥 skip link
+
+.skip-link {
+	position: absolute;
+	top: -40px;
+	left: 0;
+	background-color: #bf1722;
+	color: white;
+	padding: 8px;
+	z-index: 10000;
+
+	&:focus {
+		top: 0;
+	}
 }
 
 // 🔥 Nav
@@ -121,6 +141,10 @@ header {
 			color: $black;
 			text-align: center;
 			font-weight: $light-bold;
+
+			@include media(">650px") {
+				padding: 1em 0 1em 2em;
+			}
 		}
 
 		&.open {
@@ -155,18 +179,23 @@ main {
 		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
 			url(../public/images/heros/hero-image_2.jpg);
 		background-size: cover;
+		background-position: center ;
 		// filter: brightness(0.8);
 		text-align: center;
 
-		@include media('>700px') {
+		@include media(">700px") {
 			padding: 6em 2em;
 		}
-		@include media('>850px') {
+		@include media(">850px") {
 			padding: 10em 2em;
 		}
-		@include media('>1000px') {
+		@include media(">1000px") {
 			padding: 10em 2em;
 			min-height: 70vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
 		}
 
 		&__heading-title {
@@ -174,6 +203,10 @@ main {
 			font-size: 2em;
 			font-weight: 700;
 			margin-bottom: 0.5em;
+
+			@include media(">1000px") {
+				font-size: 3em;
+			}
 		}
 
 		&__description {
@@ -193,7 +226,7 @@ main {
 			cursor: pointer;
 			text-decoration: none;
 			font-size: 1em;
-			transition: .4s ease-in-out;
+			transition: 0.4s ease-in-out;
 
 			&:hover {
 				color: darken(white, 10%);
@@ -205,7 +238,7 @@ main {
 	.kelebihan-section {
 		padding: 2em 0;
 
-		@include media('>1000px') {
+		@include media(">1000px") {
 			padding-top: 5em;
 		}
 		// .kelebihan__label {
@@ -260,14 +293,17 @@ main {
 	.restourants-section {
 		padding: 2em 0;
 
-		@include media(">515px", "<600px") {
-			padding: 2em 4em;
+		@include media(">mobile", "<=470px") {
+			padding: 2em 1em;
 		}
 		@include media(">470px", "<=515px") {
 			padding: 2em 2em;
 		}
-		@include media(">mobile", "<=470px") {
-			padding: 2em 1em;
+		@include media(">515px", "<600px") {
+			padding: 2em 4em;
+		}
+		@include media(">1000px") {
+			padding: 2em 4em;
 		}
 
 		// .restourants__label {
@@ -311,10 +347,11 @@ main {
 						font-size: 1.5em;
 						font-weight: 570;
 						margin-bottom: 0.5em;
+						line-height: 1.5;
 						overflow: hidden;
 						text-overflow: ellipsis;
 						display: -webkit-box;
-						max-height: 1.2em;
+						max-height: 2em;
 						-webkit-line-clamp: 1; /* Write the number of 
                               lines you want to be 
                               displayed */
@@ -339,14 +376,25 @@ main {
 						}
 					}
 
+					.city {
+						color: $black;
+						font-size: 0.9em;
+						display: inline-block;
+						margin: 0.5em 0;
+
+						i {
+							color: salmon;
+						}
+					}
+
 					.description {
 						color: $black;
 						font-size: 0.9em;
-						line-height: 1.2;
+						line-height: 1.3;
 						overflow: hidden;
 						text-overflow: ellipsis;
 						display: -webkit-box;
-						max-height: 1.2em * 3;
+						max-height: 1.5em * 3;
 						-webkit-line-clamp: 3; /* Write the number of 
                               lines you want to be 
                               displayed */

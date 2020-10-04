@@ -7,7 +7,9 @@ import "../../node_modules/@fortawesome/fontawesome-free/js/all.js";
 import "../styles/main.scss";
 
 import nav from "./DOM/nav";
+import resto from "./DOM/resto_list";
 
 document.addEventListener("DOMContentLoaded", () => {
 	nav();
+	resto();
 });
