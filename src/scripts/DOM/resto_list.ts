@@ -71,7 +71,7 @@ const listItemTemplate = ({
 						</div>
 						<div class="action">
 							<div class="action__share">
-								<button>
+								<button aria-label="bagikan restoran ${name}" tabindex="-1">
 									<i class="fas fa-share-square"></i>
 									Bagikan
 								</button>

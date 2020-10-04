@@ -113,6 +113,10 @@ header {
 		color: $black;
 		font-size: 1.2em;
 
+		&:focus {
+			box-shadow: 0 0 .1em .1em goldenrod;
+		}
+
 		@include media(">mobile") {
 			display: none;
 		}
