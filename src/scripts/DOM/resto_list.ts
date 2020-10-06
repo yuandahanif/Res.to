@@ -1,4 +1,5 @@
 import data from "../../DATA.json";
+import doRate from "./rating";
 
 interface templateProps {
 	id: string;
@@ -8,34 +9,6 @@ interface templateProps {
 	city: string;
 	rating: number;
 }
-
-const doRate = (rate: number): string => {
-	const { fullStar, halfStar, noStar } = {
-		fullStar: '<i class="fas fa-star"></i>',
-		halfStar: '<i class="fas fa-star-half-alt"></i>',
-		noStar: '<i class="far fa-star"></i>',
-	};
-
-	// logika reting
-	let strTmp = "";
-	//  - round ke atas
-	let roundedUpRate = Math.ceil(rate);
-	let haveHalfStar = roundedUpRate - rate > 0;
-
-	for (let i = 1; i < roundedUpRate; i++) {
-		strTmp += fullStar;
-	}
-
-	//  - modulus ? + half star : empty star
-	strTmp += haveHalfStar ? halfStar : noStar;
-
-	// fill empty star
-	for (let i = 0; i < 5 - roundedUpRate; i++) {
-		strTmp += noStar;
-	}
-
-	return strTmp;
-};
 
 const listItemTemplate = function ({
 	id,
@@ -71,7 +44,7 @@ const listItemTemplate = function ({
 	</div>
 	<div class="action">
 		<div class="action__share">
-			<button aria-label="bagikan restoran ${name}" tabindex="-1">
+			<button aria-label="bagikan restoran ${name}">
 				<i class="fas fa-share-square"></i>
 				Bagikan
 			</button>
@@ -86,7 +59,7 @@ const listItemTemplate = function ({
 	</article>`;
 };
 
-const set_resto_list = function () {
+const set_resto_list = async () => {
 	const listContainer = document!.querySelector(".restourant-list");
 	const { restaurants } = data;
 

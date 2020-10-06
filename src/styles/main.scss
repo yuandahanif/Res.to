@@ -96,7 +96,7 @@ header {
 	}
 
 	.logo {
-		height: 1.5em;
+		height: 1.8em;
 		img {
 			height: 100%;
 		}
@@ -112,6 +112,8 @@ header {
 		border: none;
 		color: $black;
 		font-size: 1.2em;
+
+		min-height: 44px;
 
 		&:focus {
 			box-shadow: 0 0 .1em .1em goldenrod;
