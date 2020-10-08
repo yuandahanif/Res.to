@@ -10,14 +10,14 @@ interface templateProps {
 	rating: number;
 }
 
-const listItemTemplate = function ({
+const listItemTemplate = ({
 	id,
 	city,
 	description,
 	name,
 	pictureId,
 	rating,
-}: templateProps): string {
+}: templateProps): string => {
 	return `<article class="card-item restourant">
 	<div class="image-container">
 		<img
@@ -26,9 +26,9 @@ const listItemTemplate = function ({
 		/>
 	</div>
 	<div class="restourant-description">
-		<h4 class="restourant-name">
+		<h3 class="restourant-name">
 			${name}
-		</h4>
+		</h3>
 		<div class="rating">
 			<div class="stars">
 			${doRate(rating)}

@@ -69,6 +69,5 @@ module.exports = {
 			cache: true,
 			inject: true,
 		}),
-		new CleanWebpackPlugin(),
 	],
 };

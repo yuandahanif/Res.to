@@ -27,4 +27,5 @@ module.exports = merge(common, {
 	resolve: {
 		extensions: ["*", ".js", ".jsx", ".tsx", ".ts"],
 	},
+	plugins: [new CleanWebpackPlugin()],
 });
