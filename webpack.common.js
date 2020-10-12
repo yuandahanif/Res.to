@@ -36,7 +36,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'public/fonts/',
+              outputPath: 'fonts/',
             },
           },
         ],
@@ -59,13 +59,13 @@ module.exports = {
       patterns: [
         {
           from: path.resolve(__dirname, 'src/public/'),
-          to: path.resolve(__dirname, 'dist/public'),
+          to: path.resolve(__dirname, 'dist'),
         },
       ],
     }),
     new FaviconsWebpackPlugin({
       logo: './src/public/icons/favicon.png',
-      outputPath: '/public/icons',
+      outputPath: '/assets',
       cache: true,
       inject: true,
     }),
