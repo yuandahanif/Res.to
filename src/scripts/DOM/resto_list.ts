@@ -1,5 +1,8 @@
-import data from "../../DATA.json";
-import doRate from "./rating";
+/* eslint-disable import/no-unresolved */
+/* eslint-disable no-tabs */
+/* eslint-disable import/extensions */
+import data from '../../DATA.json';
+import numberToStarRating from './rating';
 
 interface templateProps {
 	id: string;
@@ -10,15 +13,14 @@ interface templateProps {
 	rating: number;
 }
 
-const listItemTemplate = ({
-	id,
-	city,
-	description,
-	name,
-	pictureId,
-	rating,
-}: templateProps): string => {
-	return `<article class="card-item restourant">
+const restaurantCardElement = ({
+  id,
+  city,
+  description,
+  name,
+  pictureId,
+  rating,
+}: templateProps): string => `<article class="card-item restourant">
 	<div class="image-container">
 		<img
 			src="${pictureId}"
@@ -31,7 +33,7 @@ const listItemTemplate = ({
 		</h3>
 		<div class="rating">
 			<div class="stars">
-			${doRate(rating)}
+			${numberToStarRating(rating)}
 			</div>
 			<span class="rating-number">${rating}</span>
 			</div>
@@ -57,22 +59,22 @@ const listItemTemplate = ({
 		</div>
 	</div>
 	</article>`;
+
+const displayRestoListToHTML = async () => {
+  const listContainer = document!.querySelector('.restourant-list');
+  const { restaurants } = data;
+
+  let tmpElm: string = '';
+  Promise.all(
+    // eslint-disable-next-line array-callback-return
+    restaurants.map((restaurant) => {
+      tmpElm += restaurantCardElement(restaurant);
+    }),
+  ).then(() => {
+    if (listContainer) {
+      listContainer.innerHTML = tmpElm;
+    }
+  });
 };
 
-const set_resto_list = async () => {
-	const listContainer = document!.querySelector(".restourant-list");
-	const { restaurants } = data;
-
-	let tmpElm: string = "";
-	Promise.all(
-		restaurants.map((restaurant) => {
-			tmpElm += listItemTemplate(restaurant);
-		})
-	).then(() => {
-		if (listContainer) {
-			listContainer.innerHTML = tmpElm;
-		}
-	});
-};
-
-export default set_resto_list;
+export default displayRestoListToHTML;
