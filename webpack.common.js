@@ -1,4 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
@@ -51,6 +53,9 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.json'],
   },
   plugins: [
+    // new ServiceWorkerWebpackPlugin({
+    //   entry: path.join(__dirname, 'src/sw.js'),
+    // }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/templates/index.html'),
       filename: 'index.html',

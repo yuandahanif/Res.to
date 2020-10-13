@@ -22,5 +22,10 @@ module.exports = {
         optionalDependencies: false,
         peerDependencies: false,
       }],
+    'no-underscore-dangle': ['error',
+      { enforceInMethodNames: false }],
+    // 'import/extensions': ['never', {
+    //   ts: 'never',
+    // }],
   },
 };

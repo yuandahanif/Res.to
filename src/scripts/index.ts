@@ -8,10 +8,10 @@ import '../../node_modules/@fortawesome/fontawesome-free/js/all.js';
 
 import '../styles/main.scss';
 
-import nav from './DOM/nav';
-import resto from './DOM/resto_list';
+import App from './views/app';
 
-document.addEventListener('DOMContentLoaded', () => {
-  nav();
-  resto();
+const app = new App({
+  drawer: document!.querySelector('nav.drawer'),
+  content: document!.querySelector('main, footer'),
+  button: document!.querySelector('button.hamburger-button'),
 });
