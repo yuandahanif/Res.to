@@ -1,16 +1,20 @@
+/* eslint-disable class-methods-use-this */
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable import/no-unresolved */
 // /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
 import { AppInitI } from '../globals/types';
+import routes from '../routes/routes';
+import UrlParser from '../routes/url-parser';
 import DrawerInitiator from '../utils/drawer-initiator';
 
 class App {
-  public _drawer: HTMLElement;
+  public _drawer: HTMLElement | null;
 
-  public _content: HTMLElement;
+  public _content: HTMLElement | null;
 
-  public _button: HTMLElement;
+  public _button: HTMLElement | null;
 
   constructor({ drawer, content, button }: AppInitI) {
     this._drawer = drawer;
@@ -26,6 +30,15 @@ class App {
       content: this._content,
       button: this._button,
     });
+  }
+
+  async renderPage() {
+    const url = UrlParser.parseActiveUrlWithCombiner();
+    const page = routes[url];
+    if (this._content) {
+      // this._content.innerHTML = await page.render();
+      await page.afterRender();
+    }
   }
 }
 
