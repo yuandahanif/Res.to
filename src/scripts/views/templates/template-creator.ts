@@ -1,8 +1,8 @@
-/* eslint-disable import/no-unresolved */
 /* eslint-disable no-tabs */
+/* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
-import data from '../../DATA.json';
-import numberToStarRating from '../utils/rating';
+import API_ENDPOINT from '../../globals/api-endpoint';
+import numberToStarRating from '../../utils/rating';
 
 interface templateProps {
 	id: string;
@@ -13,7 +13,7 @@ interface templateProps {
 	rating: number;
 }
 
-const restaurantCardElement = ({
+const createRestaurantItemTemplate = ({
   id,
   city,
   description,
@@ -23,7 +23,7 @@ const restaurantCardElement = ({
 }: templateProps): string => `<article class="card-item restourant">
 	<div class="image-container">
 		<img
-			src="${pictureId}"
+			src="${API_ENDPOINT.MEDIUM_IMAGE(pictureId)}"
 			alt="gambar restoran ${name}"
 		/>
 	</div>
@@ -60,21 +60,9 @@ const restaurantCardElement = ({
 	</div>
 	</article>`;
 
-const displayRestoListToHTML = async () => {
-  const listContainer = document!.querySelector('.restourant-list');
-  const { restaurants } = data;
+const createDetailItemTemplate = (): void => {};
 
-  let tmpElm: string = '';
-  Promise.all(
-    // eslint-disable-next-line array-callback-return
-    restaurants.map((restaurant) => {
-      tmpElm += restaurantCardElement(restaurant);
-    }),
-  ).then(() => {
-    if (listContainer) {
-      listContainer.innerHTML = tmpElm;
-    }
-  });
+export {
+  createRestaurantItemTemplate,
+  createDetailItemTemplate,
 };
-
-export default displayRestoListToHTML;

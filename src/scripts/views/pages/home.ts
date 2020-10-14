@@ -1,6 +1,10 @@
+/* eslint-disable import/extensions */
 /* eslint-disable no-empty-function */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable import/no-unresolved */
+
+import RestaurantApiData from '../../data/restaurant-api-source';
+import { createRestaurantItemTemplate } from '../templates/template-creator';
 
 class Home {
   static async render() {
@@ -55,7 +59,20 @@ class Home {
   }
 
   static async afterRender() {
+    const listContainer = document!.querySelector('.restourant-list');
+    const { restaurants } = await RestaurantApiData.getListRestoaurant();
 
+    let tmpElm: string = '';
+    Promise.all(
+    // eslint-disable-next-line array-callback-return
+      restaurants.map((restaurant: any) => {
+        tmpElm += createRestaurantItemTemplate(restaurant);
+      }),
+    ).then(() => {
+      if (listContainer) {
+        listContainer.innerHTML = tmpElm;
+      }
+    });
   }
 }
 

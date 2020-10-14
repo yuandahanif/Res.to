@@ -8,20 +8,24 @@ const doRate = (rate: number): string => {
 
   // logika reting
   let strTmp = '';
-  //  - round ke atas
-  const roundedUpRate = Math.ceil(rate);
-  const haveHalfStar = roundedUpRate - rate > 0;
+  //  - round ke bawah
+  const roundedDown = Math.floor(rate);
+  const haveHalfStar = rate - roundedDown > 0;
 
-  for (let i = 1; i < roundedUpRate; i++) {
+  for (let i = 0; i < roundedDown; i++) {
     strTmp += fullStar;
   }
 
   //  - modulus ? + half star : empty star
-  strTmp += haveHalfStar ? halfStar : noStar;
+  strTmp += haveHalfStar ? halfStar : '';
 
   // fill empty star
-  for (let i = 0; i < 5 - roundedUpRate; i++) {
-    strTmp += noStar;
+  const noStarCount = roundedDown + (haveHalfStar ? 1 : 0);
+  // console.log('noStarCount', roundedDown + (halfStar ? 1 : 0));
+  if (noStarCount <= 5) {
+    for (let i = noStarCount; i < 5; i++) {
+      strTmp += noStar;
+    }
   }
 
   return strTmp;
