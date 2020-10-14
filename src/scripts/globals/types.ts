@@ -1,4 +1,9 @@
 /* eslint-disable import/prefer-default-export */
-interface AppInitI { [key: string]: HTMLElement | null }
+interface AppInitI {
+  drawer: HTMLElement | null;
+  content: HTMLElement | null;
+  button: HTMLElement | null;
+  debugMode?: boolean;
+}
 
 export type { AppInitI };

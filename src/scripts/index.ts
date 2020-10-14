@@ -22,6 +22,7 @@ const app = new App({
   drawer: document!.querySelector('nav.drawer'),
   content: document!.querySelector('main'),
   button: document!.querySelector('button.hamburger-button'),
+  debugMode: !true,
 });
 
 window.addEventListener('hashchange', () => {

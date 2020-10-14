@@ -16,10 +16,15 @@ class App {
 
   public _button: HTMLElement | null;
 
-  constructor({ drawer, content, button }: AppInitI) {
+  public _debugMode: boolean;
+
+  constructor({
+    drawer, content, button, debugMode = false,
+  }: AppInitI) {
     this._drawer = drawer;
     this._content = content;
     this._button = button;
+    this._debugMode = debugMode;
 
     this._initialAppShell();
   }
@@ -36,8 +41,10 @@ class App {
     const url = UrlParser.parseActiveUrlWithCombiner();
     const page = routes[url];
     if (this._content) {
-      // this._content.innerHTML = await page.render();
-      await page.afterRender();
+      if (!this._debugMode) {
+        this._content.innerHTML = await page.render();
+        await page.afterRender();
+      }
     }
   }
 }
