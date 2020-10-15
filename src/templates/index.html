@@ -4,14 +4,190 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="Description" content="Cara mudah cari tempat makan." />
-		<link rel="manifest" href="manifest.json">
+		<link rel="manifest" href="manifest.json" />
 		<title>Res.to | Tempat cari makan terbaik.</title>
 	</head>
 	<body>
 		<skip-to-content></skip-to-content>
 		<header-view></header-view>
 		<main>
-			
+			<div class="detail-container">
+				<!-- image | description(nama, rating, kota, kategori) -->
+				<section class="row desc-top-section">
+					<div class="col desc-top-left">
+						<figure>
+							<img
+								src="https://restaurant-api.dicoding.dev/images/medium/34"
+								alt="Nama restoran"
+							/>
+						</figure>
+					</div>
+					<div class="col desc-top-right">
+						<h1 class="desc-name">Nama resto</h1>
+						<div class="rating"><span>rating</span><span> | kota</span></div>
+						<div class="desc-category">
+							<span>kategori 1</span>
+							<span>kategori 2</span>
+						</div>
+					</div>
+				</section>
+
+				<!-- deskripsi panjang -->
+				<section class="desc-down-section">
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+						exercitationem impedit architecto laborum veniam aliquid dignissimos
+						vitae quod itaque. Minus ipsam dignissimos saepe fugiat dolorum nam
+						eos autem facilis! Sapiente!
+					</p>
+				</section>
+
+				<!-- menu list(makan dan minum) -->
+				<section class="menu-list-section">
+					<div class="food-list">
+						<h2>Daftar Makanan</h2>
+						<div class="card-container">
+							<div class="card-item desc-food">
+								<i class="fas fa-utensils"></i> <span>makanan 1</span>
+							</div>
+
+							<div class="card-item desc-food">
+								<i class="fas fa-utensils"></i> <span>Makanan 2</span>
+							</div>
+
+							<div class="card-item desc-food">
+								<i class="fas fa-utensils"></i> <span>Makanan 3</span>
+							</div>
+
+							<div class="card-item desc-food">
+								<i class="fas fa-utensils"></i> <span>makanan 4</span>
+							</div>
+
+							<div class="card-item desc-food">
+								<i class="fas fa-utensils"></i> <span>makanan 4</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="drink-list">
+						<h2>Daftar Minuman</h2>
+
+						<div class="card-container">
+							<div class="card-item desc-drink">
+								<i class="fas fa-coffee"></i> <span>makanan 1</span>
+							</div>
+
+							<div class="card-item desc-drink">
+								<i class="fas fa-coffee"></i> <span>Makanan 2</span>
+							</div>
+
+							<div class="card-item desc-drink">
+								<i class="fas fa-coffee"></i> <span>Makanan 3</span>
+							</div>
+
+							<div class="card-item desc-drink">
+								<i class="fas fa-coffee"></i> <span>makanan 4</span>
+							</div>
+
+							<div class="card-item desc-drink">
+								<i class="fas fa-coffee"></i> <span>makanan 4</span>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- review -->
+				<section class="review-section">
+					<h2>Review pengguna</h2>
+
+					<div class="card-container">
+						<div class="card-item review-card">
+							<div class="review-card-profile">
+								<figure>
+									<img
+										src="https://restaurant-api.dicoding.dev/images/medium/34"
+										alt="Nama restoran"
+									/>
+								</figure>
+								<div class="review-card-profile-info">
+									<h3>nama restoran</h3>
+									<span>tanggal</span>
+								</div>
+							</div>
+							<div class="review-card-description">
+								<p>
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+									</p>
+							</div>
+						</div>
+
+						<div class="card-item review-card">
+							<div class="review-card-profile">
+								<figure>
+									<img
+										src="https://restaurant-api.dicoding.dev/images/medium/34"
+										alt="Nama restoran"
+									/>
+								</figure>
+								<div class="review-card-profile-info">
+									<h3>nama restoran</h3>
+									<span>tanggal</span>
+								</div>
+							</div>
+							<div class="review-card-description">
+								<p>
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+									eius laborum doloremque necessitatibus dolorum esse quos?
+									Dolor dolorum eos quis, ad dolore possimus explicabo.
+									Necessitatibus tempora debitis quae iste natus.
+								</p>
+							</div>
+						</div>
+
+						<div class="card-item review-card">
+							<div class="review-card-profile">
+								<figure>
+									<img
+										src="https://restaurant-api.dicoding.dev/images/medium/34"
+										alt="Nama restoran"
+									/>
+								</figure>
+								<div class="review-card-profile-info">
+									<h3>nama restoran</h3>
+									<span>tanggal</span>
+								</div>
+							</div>
+							<div class="review-card-description">
+								<p>
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+									eius laborum doloremque necessitatibus dolorum esse quos?
+									Dolor dolorum eos quis, ad dolore possimus explicabo.
+									Necessitatibus tempora debitis quae iste natus.
+								</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- tulis review -->
+				<section class="add-review-section">
+					<form action="#">
+						<div class="input-group">
+							<label for="nama">Nama</label>
+							<input type="text" placeholder="Nama anda" name="nama" id="nama" />
+						</div>
+						<div class="input-group">
+							<label for="review">Pendapat</label>
+							<textarea
+								name="review"
+								id="review"
+								rows="5"
+								placeholder="Pendapat anda"
+							></textarea>
+						</div>
+						<button type="submit">kirim review</button>
+					</form>
+				</section>
+			</div>
 		</main>
 		<footer-view></footer-view>
 	</body>

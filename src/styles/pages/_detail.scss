@@ -1,0 +1,277 @@
+@mixin detail {
+	.detail-container {
+		position: relative;
+		box-sizing: border-box;
+		max-width: 1038px;
+		width: 100%;
+		margin: auto;
+
+		@include media(">780px") {
+			padding: 0 1em;
+			margin-top: 5em;
+			background-color: white;
+			box-shadow: 0em 0em 0.6em rgba(0, 0, 0, 0.295);
+		}
+
+		img {
+			width: 100%;
+		}
+
+		h2 {
+			color: $black;
+			display: inline-block;
+			margin-bottom: 1em;
+			font-size: 1.2em;
+			font-weight: 600;
+
+			@include media(">600px") {
+				font-size: 1.5em;
+			}
+		}
+
+		.desc-top-section {
+			display: flex;
+			flex-direction: column;
+
+			@include media(">780px") {
+				flex-direction: row;
+				padding: 1em 2em 0;
+			}
+
+			div {
+				width: 100%;
+			}
+
+			.desc-top-left {
+				@include media(">780px") {
+					margin-top: -7em;
+					display: flex;
+					justify-content: flex-end;
+				}
+
+				img {
+					width: 100%;
+
+					@include media(">780px") {
+						max-width: 460px;
+					}
+				}
+			}
+
+			.desc-top-right {
+				padding: 0.5em 1em;
+
+				.desc-name {
+					font-size: 2em;
+					font-weight: 600;
+					margin-bottom: 0.3em;
+					color: $black;
+
+					@include media(">600px") {
+						font-size: 3em;
+					}
+				}
+
+				.rating {
+					margin-bottom: 0.7em;
+
+					span {
+						display: inline-block;
+						font-size: 1.2em;
+						color: $black;
+					}
+				}
+
+				.desc-category {
+					display: flex;
+					flex-wrap: wrap;
+
+					span {
+						display: inline-block;
+						background-color: rgb(127, 172, 255);
+						padding: 0.4em 0.6em;
+						border-radius: 2em;
+						color: white;
+						margin-right: 0.5em;
+					}
+				}
+			}
+		}
+
+		// deskripsi panjang
+		.desc-down-section {
+			padding: 1em;
+			box-sizing: border-box;
+
+			@include media(">780px") {
+				padding: 1em 3em;
+			}
+
+			p {
+				font-size: 1em;
+				line-height: 1.2em;
+				color: $black;
+			}
+		}
+
+		// ,menu list
+		.menu-list-section {
+			// background-color: bisque;
+			padding: 1em;
+
+			.card-container {
+				margin-bottom: 1em;
+
+				.card-item {
+					flex-direction: row;
+					padding: 0.5em;
+					width: 90%;
+					justify-content: center;
+					margin-bottom: 0.5em;
+					background-color: cadetblue;
+					box-shadow: 0.2em 0.2em 0.6em rgba(0, 0, 0, 0.13);
+					border-radius: 0.2em;
+
+					span {
+						margin-left: 0.5em;
+					}
+					i,
+					svg,
+					span {
+						color: white;
+					}
+				}
+			}
+		}
+
+		// review
+		.review-section {
+			padding: 1em;
+
+			.card-container {
+				justify-content: center;
+				column-gap: 1em;
+
+				@include media(">635px", "<995px") {
+					width: 600px;
+					justify-items: center;
+					margin: auto;
+				}
+
+				.review-card {
+					align-items: flex-start;
+					padding: 1em;
+					border: 1px solid lighten($black, 60%);
+					border-radius: 0.2em;
+					margin-bottom: 1em;
+					width: 100%;
+
+					.review-card-profile {
+						display: grid;
+						justify-items: left;
+						grid-template-areas:
+							"img name"
+							"img .";
+						column-gap: 1em;
+						margin-bottom: 1em;
+
+						figure {
+							grid-area: img;
+
+							img {
+								$img-size: 5em;
+								width: $img-size;
+								height: $img-size;
+								object-fit: cover;
+								object-position: center;
+								border-radius: 10em;
+							}
+						}
+
+						.review-card-profile-info {
+							margin-top: 0.5em;
+							text-align: left;
+
+							h3 {
+								grid-area: name;
+								color: $black;
+								font-weight: 600;
+								font-size: 1.2em;
+							}
+
+							span {
+								color: $black;
+								grid-area: date;
+							}
+						}
+					}
+
+					.review-card-description {
+						p {
+							line-height: 1.5;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							display: -webkit-box;
+							height: 4.5em;
+							-webkit-line-clamp: 3; /* Write the number of 
+                              lines you want to be 
+                              displayed */
+							-webkit-box-orient: vertical;
+							color: $black;
+							text-align: left;
+						}
+					}
+				}
+			}
+		}
+
+		// add review
+		// TODO: this
+		.add-review-section {
+			form {
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
+				align-items: center;
+
+				.input-group {
+					max-width: 500px;
+					margin-bottom: 1em;
+					width: 80%;
+
+					label,
+					input,
+					textarea {
+						display: block;
+						border: none;
+						outline: none;
+					}
+
+					label {
+						margin-bottom: 0.5em;
+					}
+
+					input,
+					textarea {
+						border: 0.1em solid $black;
+						padding: 0.5em 1em;
+						border-radius: 0.2em;
+						width: 100%;
+					}
+				}
+
+				button {
+					outline: none;
+					border: none;
+					padding: 0.5em 1em;
+					min-height: 44px;
+					color: white;
+					font-weight: bold;
+					background-color: rgb(86, 214, 0);
+					margin-bottom: 5em;
+					border-radius: 0.5em;
+				}
+			}
+		}
+	}
+}

@@ -63,16 +63,19 @@ class Home {
     const { restaurants } = await RestaurantApiData.getListRestoaurant();
 
     let tmpElm: string = '';
-    Promise.all(
-    // eslint-disable-next-line array-callback-return
-      restaurants.map((restaurant: any) => {
-        tmpElm += createRestaurantItemTemplate(restaurant);
-      }),
-    ).then(() => {
-      if (listContainer) {
-        listContainer.innerHTML = tmpElm;
-      }
-    });
+
+    if (restaurants) {
+      Promise.all(
+      // eslint-disable-next-line array-callback-return
+        restaurants.map((restaurant: any) => {
+          tmpElm += createRestaurantItemTemplate(restaurant);
+        }),
+      ).then(() => {
+          listContainer!.innerHTML = tmpElm;
+      });
+    } else {
+      listContainer!.innerHTML = 'Gagal memuat data!';
+    }
   }
 }
 
