@@ -5,6 +5,11 @@ const randomStr = (): string => {
   return salt[randomSaltIndex];
 };
 
+const stringLimiter = (str: string, limit: number = 10): string => {
+  const tripleDot = str.length >= limit ? '...' : '';
+  return `${str.slice(0, limit)}${tripleDot}`;
+};
+
 const reviewListItems = (reviews: any[]): string => {
   let strTmp = '';
   reviews.forEach((review: { name: any; date: any; review: any; }) => {
@@ -14,11 +19,11 @@ const reviewListItems = (reviews: any[]): string => {
       <figure>
         <img
           src="https://avatars.dicebear.com/api/bottts/${randomStr()}.svg"
-          alt="${review.name}"
+          alt="${stringLimiter(review.name, 14)}"
         />
       </figure>
       <div class="review-card-profile-info">
-        <h3>${review.name}</h3>
+        <h3>${stringLimiter(review.name, 14)}</h3>
         <span>${review.date}</span>
         <div class="review-card-description">
           <p>

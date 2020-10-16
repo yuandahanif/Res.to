@@ -45,7 +45,6 @@ class RestaurantApiData {
       return true;
     } catch (error) {
       alert('Review gagal ditambahkan');
-      console.log('Detail -> formInit -> error', error);
       return false;
     }
   }

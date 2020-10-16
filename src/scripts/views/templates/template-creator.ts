@@ -116,7 +116,6 @@ const createDetailItemTemplate = (restaurant: any): string => `
 	<h2>Review pengguna</h2>
 
 	<div class="card-container">
-			${reviewListItems(restaurant.consumerReviews)}
 	</div>
 </section>
 <!-- tulis review -->

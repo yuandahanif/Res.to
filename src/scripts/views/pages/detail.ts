@@ -3,6 +3,7 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable import/no-unresolved */
 
+import { reviewListItems } from '../../components/detail-component-template';
 import RestaurantApiData from '../../data/restaurant-api-source';
 import UrlParser from '../../routes/url-parser';
 import { createDetailItemTemplate } from '../templates/template-creator';
@@ -21,14 +22,26 @@ class Detail {
     const { id } = UrlParser.parseActiveUrlWithoutCombiner();
     const { restaurant } = await RestaurantApiData.getDetaolRestaurant(id!);
     container!.innerHTML = createDetailItemTemplate(restaurant);
-    await this.formInit(id!);
+
+    await this.setReview(restaurant.consumerReviews);
+    await this.formInit({ id: id!, reviews: restaurant.consumerReviews });
   }
 
-  static async formInit(id: string) {
+  static async setReview(reviews: any[]) {
+    const reviewContainer = document!.querySelector('.review-section .card-container');
+    reviewContainer!.innerHTML = reviewListItems(reviews);
+  }
+
+  static async formInit({ id, reviews }: {[key: string] : any}) {
     const form = document!.querySelector('form');
     const inputName = form?.querySelector('input');
     const inputReview = form?.querySelector('textarea');
     const submitButton = form?.querySelector('button[type="submit"]');
+
+    const clearForm = () => {
+      inputName!.value = '';
+      inputReview!.value = '';
+    };
 
     submitButton?.addEventListener('click', async (event) => {
       event.preventDefault();
@@ -37,7 +50,10 @@ class Detail {
       const review = inputReview?.value;
 
       if (name && review) {
-        RestaurantApiData.addReviewRestaurant({ id, name, review });
+        if (await RestaurantApiData.addReviewRestaurant({ id, name, review })) {
+          this.setReview([...reviews, { name, review, date: 'Baru saja' }]);
+          clearForm();
+        }
       }
     });
   }
