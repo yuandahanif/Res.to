@@ -21,12 +21,10 @@ class FavoriteRestaurant {
   }
 
   static async putResto(resto: any) {
-    console.log('FavoriteRestaurant -> putResto -> resto', resto);
     return (await dbPromise).put(OBJECT_STORE_NAME, resto);
   }
 
   static async deleteResto(id: string) {
-    console.log('FavoriteRestaurant -> deleteResto -> id', id);
     return (await dbPromise).delete(OBJECT_STORE_NAME, id);
   }
 }
