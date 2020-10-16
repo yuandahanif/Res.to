@@ -4,6 +4,7 @@
 /* eslint-disable import/no-unresolved */
 
 import { reviewListItems } from '../../components/detail-component-template';
+import preLoader, { addPreLoader } from '../../components/loader-component';
 import RestaurantApiData from '../../data/restaurant-api-source';
 import UrlParser from '../../routes/url-parser';
 import { createDetailItemTemplate } from '../templates/template-creator';
@@ -12,7 +13,7 @@ class Detail {
   static async render() {
     return `
     <div class="detail-container">
-    
+    ${addPreLoader}
     </div>
     `;
   }

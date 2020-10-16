@@ -2,7 +2,7 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
 import {
-  categoryListItem, drinkListItems, foodListItems, reviewListItems,
+  categoryListItem, drinkListItems, foodListItems,
 } from '../../components/detail-component-template';
 import API_ENDPOINT from '../../globals/api-endpoint';
 import numberToStarRating from '../../utils/rating';

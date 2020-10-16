@@ -3,6 +3,7 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable import/no-unresolved */
 
+import preLoader, { addPreLoader, removePreload } from '../../components/loader-component';
 import RestaurantApiData from '../../data/restaurant-api-source';
 import { createRestaurantItemTemplate } from '../templates/template-creator';
 
@@ -52,8 +53,10 @@ class Home {
       <div class="section-label restaurant__label">
         <h2>Daftar restoran pilihan</h2>
       </div>
+      ${addPreLoader}
 
-      <div class="card-container restourant-list"></div>
+      <div class="card-container restourant-list">
+      </div>
     </section>
     `;
   }
@@ -71,7 +74,8 @@ class Home {
           tmpElm += createRestaurantItemTemplate(restaurant);
         }),
       ).then(() => {
-          listContainer!.innerHTML = tmpElm;
+        removePreload();
+        listContainer!.innerHTML = tmpElm;
       });
     } else {
       listContainer!.innerHTML = 'Gagal memuat data!';

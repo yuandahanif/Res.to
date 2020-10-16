@@ -1,12 +1,13 @@
 @import "reset";
 @import "variables";
 @import "media";
+@import "loader";
 
 @import "../public/fonts/stylesheet.css";
 
 // Pages
-@import './pages/home';
-@import './pages/detail';
+@import "./pages/home";
+@import "./pages/detail";
 
 // Setting up
 :root {
@@ -125,7 +126,7 @@ header {
 		min-height: 44px;
 
 		&:focus {
-			box-shadow: 0 0 .1em .1em goldenrod;
+			box-shadow: 0 0 0.1em 0.1em goldenrod;
 		}
 
 		@include media(">600px") {
@@ -187,7 +188,8 @@ header {
 
 // 🔥 Main
 main {
-	// padding-top: em;
+	@include pre-load;
+
 	@include home;
 
 	@include detail;

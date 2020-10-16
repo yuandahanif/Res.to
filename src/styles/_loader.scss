@@ -1,0 +1,40 @@
+@mixin pre-load {
+	.pre-load {
+		display: flex;
+		padding: 2em;
+		justify-content: center;
+        align-items: center;
+        width: 100%;
+
+		span {
+			font-size: 1.8em;
+			display: inline-block;
+		}
+
+		.dot {
+			margin: 0 0.2em;
+			font-size: 2em;
+            animation-name: opacity;
+            animation-duration: 0.8s;
+            animation-iteration-count: infinite;
+            transform-origin: center;
+
+			
+			&:nth-child(2), &:nth-child(4) {
+				animation-delay: 0.4s;
+			}
+		}
+
+		@keyframes opacity {
+			from {
+                opacity: 0;
+                transform: scale(0);
+			}
+
+			to {
+                opacity: 1;
+                transform: scale(1.2);
+			}
+		}
+	}
+}
