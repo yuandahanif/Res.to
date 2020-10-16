@@ -139,7 +139,21 @@ const createDetailItemTemplate = (restaurant: any): string => `
 </section>
 `;
 
+const createLikeButtonTemplate = `
+	<button id="likeButton">
+		<i class="far fa-heart"></i>
+	</button>
+`;
+
+const createDislikeButtonTemplate = `
+	<button id="likeButton">
+		<i class="fas fa-heart"></i>
+	</button>
+`;
+
 export {
   createRestaurantItemTemplate,
   createDetailItemTemplate,
+  createLikeButtonTemplate,
+  createDislikeButtonTemplate,
 };

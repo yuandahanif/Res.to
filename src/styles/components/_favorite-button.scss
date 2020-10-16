@@ -1,0 +1,21 @@
+@mixin favorite-button {
+    .favorite-button-container {
+        position: fixed;
+        bottom: 8%;
+        right: 8%;
+
+        button {
+            min-height: 44px;
+            height: 2em;
+            width: 2em;
+            font-size: 2em;
+            color: red;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            padding: .4em;
+            border-radius: 1em;
+            background-color: antiquewhite;
+        }
+    }
+}

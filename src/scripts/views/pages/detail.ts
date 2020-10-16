@@ -7,6 +7,7 @@ import { reviewListItems } from '../../components/detail-component-template';
 import { addPreLoader } from '../../components/loader-component';
 import RestaurantApiData from '../../data/restaurant-api-source';
 import UrlParser from '../../routes/url-parser';
+import LikeButtonInitiator from '../../utils/like-button-initiator';
 import { createDetailItemTemplate } from '../templates/template-creator';
 
 class Detail {
@@ -14,6 +15,8 @@ class Detail {
     return `
     <div class="detail-container">
     ${addPreLoader}
+    </div>
+    <div class="favorite-button-container">
     </div>
     `;
   }
@@ -26,6 +29,11 @@ class Detail {
 
     await this.setReview(restaurant.consumerReviews);
     await this.formInit({ id: id!, reviews: restaurant.consumerReviews });
+
+    LikeButtonInitiator.init({
+      resto: restaurant,
+      likeButtonContainer: document!.querySelector('.favorite-button-container'),
+    });
   }
 
   static async setReview(reviews: any[]) {
