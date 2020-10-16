@@ -1,0 +1,34 @@
+@mixin favorite {
+	.favorite-container {
+		@include media(">mobile", "<=470px") {
+			padding: 2em 1em;
+		}
+		@include media(">470px", "<=515px") {
+			padding: 2em 2em;
+		}
+		@include media(">515px", "<600px") {
+			padding: 2em 4em;
+		}
+		@include media(">1000px") {
+			padding: 2em 4em;
+		}
+
+        // min-height: 100vh;
+		// padding: 2em 0;
+        box-sizing: border-box;
+        
+        h1 {
+            font-size: 2em;
+            color: $black;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 1em;
+        }
+        
+		.card-container {
+            box-sizing: border-box;
+            // gap: 2em;
+			@include restoListItem;
+		}
+	}
+}

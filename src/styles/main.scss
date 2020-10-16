@@ -5,9 +5,13 @@
 
 @import "../public/fonts/stylesheet.css";
 
+// Components
+@import "./components/restoListItem";
+
 // Pages
 @import "./pages/home";
 @import "./pages/detail";
+@import "./pages/favorite";
 
 // Setting up
 :root {
@@ -193,6 +197,8 @@ main {
 	@include home;
 
 	@include detail;
+
+	@include favorite;
 }
 
 footer {

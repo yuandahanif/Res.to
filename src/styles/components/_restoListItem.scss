@@ -1,0 +1,135 @@
+@mixin restoListItem {
+    .restourant {
+        background-color: white;
+        border-radius: 0.5em;
+        padding: 0;
+        margin: 1em 1em;
+        box-shadow: 0.1em 0.1em 0.4em rgba(0, 0, 0, 0.25);
+        overflow: hidden;
+        text-align: left;
+        transition: box-shadow 0.4s ease-in-out;
+
+        &:hover {
+            box-shadow: 0.2em 0.2em 0.6em rgba(63, 26, 26, 0.35);
+        }
+
+        .image-container {
+            height: 10em;
+            width: 100%;
+            overflow: hidden;
+
+            img {
+                object-fit: cover;
+                // height: 100%;
+                width: 100%;
+            }
+        }
+
+        .restourant-description {
+            padding: 1em 0;
+            margin: 0 1em;
+            border-bottom: 1px solid lightgray;
+
+            .restourant-name {
+                font-size: 1.5em;
+                font-weight: 570;
+                margin-bottom: 0.5em;
+                line-height: 1.5;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                max-height: 2em;
+                -webkit-line-clamp: 1; /* Write the number of 
+                      lines you want to be 
+                      displayed */
+                -webkit-box-orient: vertical;
+            }
+
+            .rating {
+                display: flex;
+                margin-bottom: 0.5em;
+                align-items: flex-end;
+                
+                .rating-number {
+                    color: $black;
+                    font-size: 0.8em;
+                    display: inline-block;
+                    vertical-align: bottom;
+                    line-height: 1;
+                }
+            }
+
+            .city {
+                color: $black;
+                font-size: 0.9em;
+                display: inline-block;
+                margin: 0.5em 0;
+
+                i {
+                    color: salmon;
+                }
+            }
+
+            .description {
+                color: $black;
+                font-size: 0.9em;
+                line-height: 1.3;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                max-height: 1.5em * 3;
+                -webkit-line-clamp: 3; /* Write the number of 
+                      lines you want to be 
+                      displayed */
+                -webkit-box-orient: vertical;
+            }
+        }
+
+        .action {
+            display: flex;
+            // background-color: red;
+            width: 100%;
+            justify-content: center;
+
+            div {
+                width: 50%;
+                text-align: center;
+                box-sizing: border-box;
+                padding: 0.5em 0;
+
+                button,
+                a {
+                    color: lighten($black, 20%);
+                    background-color: transparent;
+                    border: none;
+                    display: inline-block;
+                    text-decoration: none;
+                    font-size: 1em;
+                    cursor: pointer;
+                    font-weight: 550;
+                    transition: color 0.2s ease-in-out;
+
+                    &:hover {
+                        color: darken($black, 20%);
+                    }
+                }
+            }
+
+            .action__share {
+                button {
+                    padding: 1em 0;
+                    min-height: 44px;
+                    border-radius: 0.5em;
+                }
+            }
+
+            .action__detail {
+                a {
+                    padding: 1em 0;
+                    min-height: 44px;
+                    border-radius: 0.5em;
+                }
+            }
+        }
+    }
+}

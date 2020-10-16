@@ -1,6 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
-
+const { InjectManifest } = require('workbox-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
@@ -74,5 +73,8 @@ module.exports = {
       cache: true,
       inject: true,
     }),
+    // new InjectManifest({
+    //   swSrc: path.resolve(__dirname, 'src/scripts/sw.js'),
+    // }),
   ],
 };

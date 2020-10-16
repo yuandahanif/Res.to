@@ -3,7 +3,7 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable import/no-unresolved */
 
-import preLoader, { addPreLoader, removePreload } from '../../components/loader-component';
+import { addPreLoader, removePreload } from '../../components/loader-component';
 import RestaurantApiData from '../../data/restaurant-api-source';
 import { createRestaurantItemTemplate } from '../templates/template-creator';
 
