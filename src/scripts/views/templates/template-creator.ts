@@ -26,7 +26,7 @@ const createRestaurantItemTemplate = ({
 }: templateProps): string => `<article class="card-item restourant">
 	<div class="image-container">
 		<img
-			src="${API_ENDPOINT.MEDIUM_IMAGE(pictureId)}"
+			src="${API_ENDPOINT.SMALL_IMAGE(pictureId)}"
 			alt="gambar restoran ${name}"
 		/>
 	</div>

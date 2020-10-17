@@ -40,11 +40,10 @@ class App {
   async renderPage() {
     const url = UrlParser.parseActiveUrlWithCombiner();
     const page = routes[url];
-    if (this._content) {
-      if (!this._debugMode) {
-        this._content.innerHTML = await page.render();
+
+    if (!this._debugMode) {
+        this._content!.innerHTML = await page.render();
         await page.afterRender();
-      }
     }
   }
 }

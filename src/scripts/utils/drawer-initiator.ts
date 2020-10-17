@@ -18,6 +18,13 @@ class DrawerInitiator {
       event.preventDefault();
       this._toogleDrawer();
     });
+
+    drawer!.querySelectorAll('a')!.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        event.stopPropagation();
+        this._closeDrawer();
+      });
+    });
   }
 
   private _toogleDrawer() {
