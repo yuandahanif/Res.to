@@ -15,7 +15,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ts|js)x?$/,
+        test: /\.(ts)x?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
@@ -73,8 +73,8 @@ module.exports = {
       cache: true,
       inject: true,
     }),
-    // new InjectManifest({
-    //   swSrc: path.resolve(__dirname, 'src/scripts/sw.js'),
-    // }),
+    new InjectManifest({
+      swSrc: path.resolve(__dirname, 'src/scripts/sw.js'),
+    }),
   ],
 };

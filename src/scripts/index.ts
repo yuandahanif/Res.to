@@ -2,10 +2,9 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
 import 'regenerator-runtime'; /* for async await transpile */
+import swRegister from './utils/sw-register';
 
 // Dependency
-import '../../node_modules/@fortawesome/fontawesome-free/css/all.css';
-import '../../node_modules/@fortawesome/fontawesome-free/js/all.js';
 
 // components
 import './components/skipToContent-view';
@@ -31,4 +30,5 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderPage();
+  swRegister();
 });

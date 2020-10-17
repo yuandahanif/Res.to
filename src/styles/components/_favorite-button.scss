@@ -1,21 +1,27 @@
 @mixin favorite-button {
-    .favorite-button-container {
-        position: fixed;
-        bottom: 8%;
-        right: 8%;
+	.favorite-button-container {
+		position: fixed;
+		bottom: 1em;
+		right: 1em;
 
-        button {
-            min-height: 44px;
-            height: 2em;
-            width: 2em;
-            font-size: 2em;
-            color: red;
-            cursor: pointer;
-            outline: none;
-            border: none;
-            padding: .4em;
-            border-radius: 1em;
-            background-color: antiquewhite;
-        }
-    }
+		button {
+			min-height: 44px;
+			height: 2em;
+			width: 2em;
+			font-size: 2em;
+			color: red;
+			cursor: pointer;
+			outline: none;
+			border: none;
+			padding: 0.4em;
+			border-radius: 1em;
+			background-color: antiquewhite;
+            transition: .3s ease-in-out;
+            box-shadow: .1em .1em .6em rgba(0, 0, 0, 0.295);
+
+			&:hover {
+				transform: scale(1.1);
+			}
+		}
+	}
 }
