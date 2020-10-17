@@ -1,0 +1,45 @@
+@mixin error {
+    .error-container {
+        display: flex;
+        width: 100%;
+        min-height: 100vh;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: left;
+
+        .error-message {
+            background-color: azure;
+            padding: 2em;
+            border-radius: .3em;
+            
+            .error-header {
+                font-size: 1.8em;
+                font-weight: 600;
+                margin-bottom: .4em;
+                line-height: 1.3;
+            }
+            .error-code {
+                span {
+                    color: red;
+                }
+                margin-bottom: 1em;
+            }
+            ul{
+                li{
+                    margin-left: 2em;
+                    list-style: disc;
+                    span {
+                        display: inline-block;
+                        margin-bottom: .5em;
+                        
+                        a {
+                            color: blue;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

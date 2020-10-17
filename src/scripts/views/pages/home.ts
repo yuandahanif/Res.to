@@ -3,8 +3,8 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable import/no-unresolved */
 
-import { addPreLoader, removePreload } from '../../components/loader-component';
 import RestaurantApiData from '../../data/restaurant-api-source';
+import { addPreLoader, preLoaderToError, removePreload } from '../../utils/pre-load-initiator';
 import { createRestaurantItemTemplate } from '../templates/template-creator';
 
 class Home {
@@ -78,7 +78,7 @@ class Home {
         listContainer!.innerHTML = tmpElm;
       });
     } else {
-      listContainer!.innerHTML = 'Gagal memuat data!';
+      preLoaderToError('No internet access');
     }
   }
 }

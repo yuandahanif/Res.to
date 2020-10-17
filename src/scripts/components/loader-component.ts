@@ -1,5 +1,5 @@
 /* eslint-disable no-tabs */
-const addPreLoader = `
+const preLoadComponent = `
 <div class="pre-load">
 				<span class="dot"> .</span>
 				<span class="dot"> .</span>
@@ -7,6 +7,4 @@ const addPreLoader = `
 				<span class="dot"> .</span>
 				<span class="dot"> .</span>
       </div>`;
-const removePreload = () => document!.querySelector('.pre-load')?.remove();
-
-export { addPreLoader, removePreload };
+export default preLoadComponent;

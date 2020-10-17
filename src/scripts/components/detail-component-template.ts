@@ -1,14 +1,7 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 /* eslint-disable no-tabs */
-const randomStr = (): string => {
-  const salt = 'abcdefghijklmnopqrstuvwxyz';
-  const randomSaltIndex = Math.floor(Math.random() * 26);
-  return salt[randomSaltIndex];
-};
-
-const stringLimiter = (str: string, limit: number = 10): string => {
-  const tripleDot = str.length >= limit ? '...' : '';
-  return `${str.slice(0, limit)}${tripleDot}`;
-};
+import { randomStr, stringLimiter } from '../utils/random-string';
 
 const reviewListItems = (reviews: any[]): string => {
   let strTmp = '';

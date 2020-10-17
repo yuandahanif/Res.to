@@ -4,10 +4,10 @@
 /* eslint-disable import/no-unresolved */
 
 import { reviewListItems } from '../../components/detail-component-template';
-import { addPreLoader } from '../../components/loader-component';
 import RestaurantApiData from '../../data/restaurant-api-source';
 import UrlParser from '../../routes/url-parser';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
+import { addPreLoader, preLoaderToError } from '../../utils/pre-load-initiator';
 import { createDetailItemTemplate } from '../templates/template-creator';
 
 class Detail {
@@ -25,15 +25,20 @@ class Detail {
     const container = document!.querySelector('.detail-container');
     const { id } = UrlParser.parseActiveUrlWithoutCombiner();
     const { restaurant } = await RestaurantApiData.getDetaolRestaurant(id!);
-    container!.innerHTML = createDetailItemTemplate(restaurant);
 
-    await this.setReview(restaurant.consumerReviews);
-    await this.formInit({ id: id!, reviews: restaurant.consumerReviews });
+    if (restaurant) {
+      container!.innerHTML = createDetailItemTemplate(restaurant);
 
-    LikeButtonInitiator.init({
-      resto: restaurant,
-      likeButtonContainer: document!.querySelector('.favorite-button-container'),
-    });
+      await this.setReview(restaurant.consumerReviews);
+      await this.formInit({ id: id!, reviews: restaurant.consumerReviews });
+
+      LikeButtonInitiator.init({
+        resto: restaurant,
+        likeButtonContainer: document!.querySelector('.favorite-button-container'),
+      });
+    } else {
+      preLoaderToError('no internet access');
+    }
   }
 
   static async setReview(reviews: any[]) {

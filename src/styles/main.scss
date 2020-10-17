@@ -8,6 +8,7 @@
 // Components
 @import "./components/restoListItem";
 @import "./components/favorite-button";
+@import "./components/error";
 
 // Pages
 @import "./pages/home";
@@ -202,6 +203,8 @@ main {
 	@include favorite;
 	
 	@include favorite-button;
+
+	@include error;
 }
 
 footer {
