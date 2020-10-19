@@ -27,7 +27,7 @@ const createRestaurantItemTemplate = ({
 	<div class="image-container">
 		<img
 			src="${API_ENDPOINT.SMALL_IMAGE(pictureId)}"
-			alt="gambar restoran ${name}"
+			alt="${name}"
 		/>
 	</div>
 	<div class="restourant-description">
@@ -70,13 +70,12 @@ const createDetailItemTemplate = (restaurant: any): string => `
 		<figure>
 			<img
 				src="${API_ENDPOINT.MEDIUM_IMAGE(restaurant.pictureId)}"
-				alt="Nama restoran"
+				alt="${restaurant.name}"
 			/>
 		</figure>
 	</div>
 	<div class="col desc-top-right">
-		<h1 class="desc-name">${restaurant.name
-}</h1>
+		<h1 class="desc-name">${restaurant.name}</h1>
 		<div class="rating"><span class="stars">${numberToStarRating(restaurant.rating)}</span> <span> ${restaurant.rating}</span></div>
 		<div class="desc-address"><span><i class="fas fa-map-marker-alt"></i> ${restaurant.address} | <i class="fas fa-city"></i> ${restaurant.city}</span></div>
 		
@@ -140,13 +139,13 @@ const createDetailItemTemplate = (restaurant: any): string => `
 `;
 
 const createLikeButtonTemplate = `
-	<button id="likeButton">
+	<button id="likeButton" aria-label="add to favorite">
 		<i class="far fa-heart"></i>
 	</button>
 `;
 
 const createDislikeButtonTemplate = `
-	<button id="likeButton">
+	<button id="likeButton" aria-label="remove from favorite">
 		<i class="fas fa-heart"></i>
 	</button>
 `;

@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
@@ -32,6 +31,20 @@ registerRoute(
   /^https:\/\/restaurant-api\.dicoding\.dev\/(?:(list|detail))/,
   new StaleWhileRevalidate({
     cacheName: 'dicoding-restaurant-api',
+    plugins: [
+      new ExpirationPlugin({
+        maxAgeSeconds: 30 * 24 * 60 * 60,
+        maxEntries: 50,
+      }),
+    ],
+  }),
+);
+
+// https://avatars.dicebear.com
+registerRoute(
+  /^https:\/\/avatars\.dicebear\.com\/api\/bottts\/\w\.svg/,
+  new StaleWhileRevalidate({
+    cacheName: 'dicebear-avatar',
     plugins: [
       new ExpirationPlugin({
         maxAgeSeconds: 30 * 24 * 60 * 60,
