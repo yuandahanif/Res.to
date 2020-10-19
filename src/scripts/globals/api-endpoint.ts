@@ -10,6 +10,7 @@ const API_ENDPOINT = {
   SMALL_IMAGE: (id: string | number) => `${CONFIG.SMALL_IMAGE_URL}/${id}`,
   MEDIUM_IMAGE: (id: string | number) => `${CONFIG.MEDIUM_IMAGE_URL}/${id}`,
   LARGE_IMAGE: (id: string | number) => `${CONFIG.LARGE_IMAGE_URL}/${id}`,
+  DICEBEAR_AVATAR: (id: string) => `${CONFIG.DICEBEAR_AVATAR}/${id}.svg`,
 };
 
 export default API_ENDPOINT;

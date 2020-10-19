@@ -1,7 +1,8 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
 /* eslint-disable no-tabs */
-import { randomStr, stringLimiter } from '../utils/random-string';
+import { stringLimiter } from '../utils/random-string';
+import { randomUserAvatar } from './avatar-component';
 
 const reviewListItems = (reviews: any[]): string => {
   let strTmp = '';
@@ -11,7 +12,7 @@ const reviewListItems = (reviews: any[]): string => {
     <div class="review-card-profile">
       <figure>
         <img
-          src="https://avatars.dicebear.com/api/bottts/${randomStr()}.svg"
+          src="${randomUserAvatar()}"
           alt="${stringLimiter(review.name, 14)}"
         />
       </figure>

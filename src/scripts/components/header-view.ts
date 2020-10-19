@@ -12,7 +12,7 @@ class HeaderView extends HTMLElement implements SimpleComponent {
       /></a>
     </div>
     <div class="hamburger-menu">
-      <button class="hamburger-button">
+      <button class="hamburger-button" aria-label="expand drawer">
         <i class="fas fa-bars"></i>
       </button>
     </div>
